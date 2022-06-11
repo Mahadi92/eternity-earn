@@ -1,151 +1,107 @@
 import Image from "next/image";
-import { TbCircle } from "react-icons/tb";
-import { MdOutlineMoreVert, MdOutlineMoreHoriz } from "react-icons/md";
-import Green from "../public/green.svg";
-import purple from "../public/purple.svg";
-import blue from "../public/blue.svg";
-import Light from "../public/light.svg";
-import GreenHub from "../public/greensub.svg";
-import PlusBg from "./../public/plus-bg.svg";
-import keyboard from "./../public/keyboard.svg";
-import circle from "./../public/circle.svg";
-import line from "./../public/line.svg";
-import Referrel from "../public/referrel.svg";
-import Deposit from "../public/Deposit.svg";
-import Compound from "../public/Compound.svg";
-import Claim from "../public/Claim-2.svg";
+import workIco1 from "../public/workIco1.svg";
+import workIco2 from "../public/workIco2.svg";
+import workIco3 from "../public/workIco3.svg";
+import workIco4 from "../public/workIco4.svg";
+import useWindowSize from "../hooks/useWindowSize";
+
+const dataArr = [
+  {
+    ico: workIco1,
+    icoBoxColor: "#45B36B",
+    step: "1",
+    title: "Bridge",
+    paragraph:
+      "Purchase $CRO from Crypto.com and send it to a Cronos enabled MetaMask wallet. Or, use a cross-chain swap application to exchange other crypto for $CRO. Cronos currently supports MetaMask and Trust Wallet",
+  },
+  {
+    ico: workIco2,
+    icoBoxColor: "#9757D7",
+    step: "2",
+    title: "Deposit",
+    paragraph:
+      "Purchase $CRO from Crypto.com and send it to a Cronos enabled MetaMask wallet. Or, use a cross-chain swap application to exchange other crypto for $CRO. Cronos currently supports MetaMask and Trust Wallet",
+  },
+  {
+    ico: workIco3,
+    icoBoxColor: "#EF466F",
+    step: "3",
+    title: "Compound",
+    paragraph:
+      "Connect your MetaMask to Eternity earn and deposit the desire amount  of $CRO. There is no minimum investment. Deposits, minus a 5% fee are locked in the contract and earn back througr the daily $CRO rewards.",
+  },
+  {
+    ico: workIco4,
+    icoBoxColor: "#3772FF",
+    step: "4",
+    title: "Claim",
+    paragraph:
+      "Purchase $CRO from Crypto.com and send it to a Cronos enabled MetaMask wallet. Or, use a cross-chain swap application to exchange other crypto for $CRO. Cronos currently supports MetaMask and Trust Wallet",
+  },
+];
 
 const Works = () => {
+  const windowSize = useWindowSize();
   return (
-    <div className="max-w-7xl m-auto px-4 xl:px-0">
+    <div className="max-w-7xl m-auto px-4 xl:px-0 pb-28">
       <div className="space-y-6">
-        <h1 className="text-center text-3xl font-bold">How it Works</h1>
+        <h1 className="text-center text-xl font-bold">How it Works</h1>
         <p className="text-center text-lg 2xl:w-6/12 2xl:mx-auto">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa harum
           autem atque cum odit officiis culpa reiciendis ab aliquam eum
           molestias odio, sint unde qui corporis porro minus illo dolorum.
         </p>
       </div>
-      <div className="grid lg:grid-cols-4 py-[100px]">
-        {/* item 1 */}
-        <div className="flex items-center justify-evenly  mb-2 lg:inline lg:items-center lg:justify-center mr-6 p-5 lg:p-0">
-          <div className="flex flex-col mr-5 lg:inline-flex lg:flex-row mb-[50px] lg:space-x-8 lg:ml-[50px]">
-            <div className="h-[60px] w-[60px] sm:h-[100px] sm:w-[100px]">
-              <Image src={Green} alt="" />
-            </div>
-            <div className="flex flex-col items-center space-y-1 lg:inline-flex lg:flex-row lg:items-center lg:space-y-0 lg:space-x-4">
-              <TbCircle className="text-gray-400 text-xl" />
-              <MdOutlineMoreHoriz className="hidden lg:inline text-gray-400 text-xl" />
-              <MdOutlineMoreVert className="lg:hidden text-gray-400 text-xl" />
-              <TbCircle className="text-gray-400 text-xl" />
-            </div>
-          </div>
-          <div className="flex space-x-5  lg:inline lg:space-x-0 lg:-mt-0 lg:space-y-4 -mt-[30px] sm:-mt-[120px]">
-            <div className=" lg:space-y-4">
-              <p className="lg:text-center lg:text-xl font-semibold sm:text-xl">
-                Step 1
-              </p>
-              <p className="lg:text-center lg:text-xl font-semibold">Bridge</p>
-            </div>
-            <p className="text-base">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis,
-              amet asperiores incidunt quidem, eos possimus quisquam vitae,
-              Lorem ipsum dolor sit, amet consectetur adipisicing
-            </p>
-          </div>
-        </div>
+      <div className="py-20 flex flex-col lg:flex-row justify-between items-start gap-24 lg:gap-10">
+        {dataArr.map((data, i) => {
+          const { ico, icoBoxColor, step, title, paragraph } = data;
+          return (
+            <div
+              key={i}
+              className="flex flex-row lg:flex-col lg:justify-center items-center gap-4 md:gap-16 lg:gap-0"
+            >
+              <div
+                className="w-10 md:w-20 h-10 md:h-20 flex justify-center items-center rounded-lg md:rounded-3xl relative"
+                style={{ background: icoBoxColor }}
+              >
+                <Image
+                  src={ico}
+                  width={windowSize.width < 768 ? 25 : 35}
+                  height={windowSize.width < 768 ? 25 : 35}
+                  alt=""
+                />
+                {i !== 0 && (
+                  <span className="absolute hidden xs:block -top-5 lg:top-auto left-auto lg:-left-10 w-3 h-3 rounded-full border border-gray-600"></span>
+                )}
 
-        {/* item 2 */}
-        <div className="flex items-center justify-evenly  mb-2 lg:inline lg:items-center lg:justify-center mr-6 p-5 lg:p-0">
-          <div className="flex flex-col items-center mr-5 lg:inline-flex lg:flex-row mb-[50px] lg:space-x-8 lg:ml-[50px]">
-            <div className="h-[60px] w-[60px] sm:h-[100px] sm:w-[100px] mb-4 sm:mb-2">
-              <Image src={purple} alt="" />
-            </div>
-            <div className="flex flex-col items-center space-y-1 lg:inline-flex lg:flex-row lg:items-center lg:space-y-0 lg:space-x-4">
-              <TbCircle className="text-gray-400 text-xl" />
-              <MdOutlineMoreHoriz className="hidden lg:inline text-gray-400 text-xl" />
-              <MdOutlineMoreVert className="lg:hidden text-gray-400 text-xl" />
-              <TbCircle className="text-gray-400 text-xl" />
-            </div>
-          </div>
-          <div className="flex space-x-5  lg:inline lg:space-x-0 lg:-mt-0 lg:space-y-4 -mt-[30px] sm:-mt-[120px]">
-            <div className=" lg:space-y-4">
-              <p className="lg:text-center lg:text-xl font-semibold sm:text-xl">
-                Step 2
-              </p>
-              <p className="lg:text-center lg:text-xl font-semibold">Bridge</p>
-            </div>
-            <p className="text-base">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis,
-              amet asperiores incidunt quidem, eos possimus quisquam vitae,
-              Lorem ipsum dolor sit, amet consectetur adipisicing
-            </p>
-          </div>
-        </div>
+                {i !== 3 && (
+                  <span className="absolute hidden xs:block -bottom-32 sm:-bottom-24 md:-bottom-[4.5rem] lg:bottom-auto lg:-right-32 xl:-right-44 w-1 lg:w-16 xl:w-28 h-20 sm:h-12 md:h-10 lg:h-1 border-l md:border-t border-dashed border-gray-600"></span>
+                )}
 
-        {/* item 3 */}
-
-        <div className="flex items-center justify-evenly  mb-2 lg:inline lg:items-center lg:justify-center mr-6 p-5 lg:p-0">
-          <div className="flex flex-col items-center mr-5 lg:inline-flex lg:flex-row mb-[50px] lg:space-x-8 lg:ml-[50px]">
-            <div className="h-[60px] w-[60px] sm:h-[100px] sm:w-[100px] mb-4 sm:mb-2">
-              <Image src={keyboard} alt="" />
+                {i !== 3 && (
+                  <span className="absolute hidden xs:block -bottom-5 lg:bottom-auto right-auto lg:-right-10 w-3 h-3 rounded-full border border-gray-600"></span>
+                )}
+              </div>
+              <div className="w-10/12 lg:w-full lg:pt-20 flex flex-row items-center lg:flex-col gap-4 md:gap-16 lg:gap-0">
+                <div className="w-4/12 sm:w-3/12 lg:w-full text-center">
+                  <span className="text-sm md:text-base font-semibold">
+                    Step {step}
+                  </span>
+                  <h4 className="text-lg md:text-xl lg:text-2xl font-bold pt-4 lg:pt-8">
+                    {title}
+                  </h4>
+                </div>
+                <p className="w-8/12 sm:w-9/12 lg:w-full lg:pt-8 text-sm md:text-base text-left lg:text-center">
+                  {paragraph}
+                </p>
+              </div>
             </div>
-            <div className="flex flex-col items-center space-y-1 lg:inline-flex lg:flex-row lg:items-center lg:space-y-0 lg:space-x-4">
-              <TbCircle className="text-gray-400 text-xl" />
-              <MdOutlineMoreHoriz className="hidden lg:inline text-gray-400 text-xl" />
-              <MdOutlineMoreVert className="lg:hidden text-gray-400 text-xl" />
-              <TbCircle className="text-gray-400 text-xl" />
-            </div>
-          </div>
-          <div className="flex space-x-5  lg:inline lg:space-x-0 lg:-mt-0 lg:space-y-4 -mt-[30px] sm:-mt-[120px]">
-            <div className=" lg:space-y-4">
-              <p className="lg:text-center lg:text-xl font-semibold sm:text-xl">
-                Step 3
-              </p>
-              <p className="lg:text-center lg:text-xl font-semibold">Bridge</p>
-            </div>
-            <p className="text-base">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis,
-              amet asperiores incidunt quidem, eos possimus quisquam vitae,
-              Lorem ipsum dolor sit, amet consectetur adipisicing
-            </p>
-          </div>
-        </div>
-
-        {/* item 4 */}
-        <div className="flex items-center justify-evenly  mb-2 lg:inline lg:items-center lg:justify-center mr-6 p-5 lg:p-0">
-          <div className="flex flex-col items-center mr-5 lg:inline-flex lg:flex-row mb-[50px] lg:space-x-8 lg:ml-[50px]">
-            <div className="h-[60px] w-[60px] sm:h-[100px] sm:w-[100px]">
-              <Image src={blue} alt="" />
-            </div>
-            <div className="flex flex-col items-center space-y-1 lg:inline-flex lg:flex-row lg:items-center lg:space-y-0 lg:space-x-4">
-              <TbCircle className="text-gray-400 text-xl hidden" />
-              <MdOutlineMoreHoriz className="text-gray-400 text-xl hidden" />
-              <MdOutlineMoreVert className=" text-gray-400 text-xl hidden" />
-              <TbCircle className="text-gray-400 text-xl hidden" />
-            </div>
-          </div>
-          <div className="flex space-x-5  lg:inline lg:space-x-0 lg:-mt-0 lg:space-y-4 -mt-[30px] sm:-mt-[120px]">
-            <div className=" lg:space-y-4">
-              <p className="lg:text-center lg:text-xl font-semibold sm:text-xl">
-                Step 4
-              </p>
-              <p className="lg:text-center lg:text-xl font-semibold">Bridge</p>
-            </div>
-            <p className="text-base">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis,
-              amet asperiores incidunt quidem, eos possimus quisquam vitae,
-              Lorem ipsum dolor sit, amet consectetur adipisicing
-            </p>
-          </div>
-        </div>
+          );
+        })}
       </div>
-
-      <div className="flex flex-col items-center justify-center pb-10">
-        <button className="bg-white outline outline-gray-200 text-black px-[14px] py-[6px] lg:px-[16px] xl:px-[17px] lg:py-2 xl:py-2 rounded-md font-bold">
-          Add Cronos to MetaAMask
-        </button>
-      </div>
+      <button className="border py-4 px-5 text-black font-semibold rounded-xl block mx-auto">
+        Add Cronos to MetaMask
+      </button>
     </div>
   );
 };
